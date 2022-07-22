@@ -799,7 +799,9 @@ Table of Contents
 6.3.  Attestation statement formats
 
    Section 2.1 of [RFC8809] describes registration of new attestation
-   statement format types.
+   statement format types.  These are not instructions for IANA but
+   rather instructions for those who want to know how to register new
+   formats for use with the attestationStatement field.
 
 7.  ASN.1 Module
 
