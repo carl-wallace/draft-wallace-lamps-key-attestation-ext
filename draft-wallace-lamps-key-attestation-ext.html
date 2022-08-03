@@ -10,12 +10,12 @@
 <meta content="
        Certification Authorities (CAs) issue certificates for public keys conveyed to the CA via a certificate management message or protocol. In some cases, a CA may wish to tailor certificate contents based on whether the corresponding private key is secured by hardware in non-exportable form. This document describes extensions that may be included in any of several widely used certificate management protocols to convey attestations about the private key to the CA to support this determination. 
     " name="description">
-<meta content="xml2rfc 3.13.0" name="generator">
+<meta content="xml2rfc 3.13.1" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-wallace-lamps-key-attestation-ext-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.13.0
-    Python 3.10.4
+  xml2rfc 3.13.1
+    Python 3.10.5
     appdirs 1.4.4
     ConfigArgParse 1.5.3
     google-i18n-address 2.5.2
@@ -1032,11 +1032,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Key Attestation Extension</td>
-<td class="right">July 2022</td>
+<td class="right">August 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wallace &amp; Turner</td>
-<td class="center">Expires 23 January 2023</td>
+<td class="center">Expires 4 February 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1049,12 +1049,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-wallace-lamps-key-attestation-ext-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-07-22" class="published">22 July 2022</time>
+<time datetime="2022-08-03" class="published">3 August 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-01-23">23 January 2023</time></dd>
+<dd class="expires"><time datetime="2023-02-04">4 February 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1083,7 +1083,8 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <p id="section-note.1-3">
         Discussion of this document takes place on the
         spasm Working Group mailing list (<span><a href="mailto:spasm@ietf.org">mailto:spasm@ietf.org</a></span>),
-        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/spasm/">https://mailarchive.ietf.org/arch/browse/spasm/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/spasm/">https://mailarchive.ietf.org/arch/browse/spasm/</a></span>.
+        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/spasm/">https://www.ietf.org/mailman/listinfo/spasm/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1104,7 +1105,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 23 January 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 February 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1167,6 +1168,14 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-attestation-statement-forma" class="xref">Attestation statement formats</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3.2.1">
+                    <p id="section-toc.1-1.6.2.3.2.1.1"><a href="#section-6.3.1" class="xref">6.3.1</a>.  <a href="#name-webauthn-attestation-statem" class="xref">WebAuthn Attestation Statement Format Identifiers for Certificate Request Protocols</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3.2.2">
+                    <p id="section-toc.1-1.6.2.3.2.2.1"><a href="#section-6.3.2" class="xref">6.3.2</a>.  <a href="#name-webauthn-extension-identifi" class="xref">WebAuthn Extension Identifiers for Certificate Request Protocols</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1831,7 +1840,7 @@ h'
         <h3 id="name-key-attestation-extension-o">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-key-attestation-extension-o" class="section-name selfRef">Key attestation extension object identifier</a>
         </h3>
-<p id="section-6.1-1">An object identifier from the id-pe arc <span>[<a href="#RFC7299" class="xref">RFC7299</a>]</span> should be assigned for id-pe-keyAttestation in the SMI Security for PKIX Certificate Extension Registry.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">An object identifier from the id-pe arc defined in <span>[<a href="#RFC7299" class="xref">RFC7299</a>]</span> should be assigned for id-pe-keyAttestation.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="key-attestation-extension-asn1-module-object-identifier">
@@ -1839,7 +1848,7 @@ h'
         <h3 id="name-key-attestation-extension-a">
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-key-attestation-extension-a" class="section-name selfRef">Key attestation extension ASN.1 module object identifier</a>
         </h3>
-<p id="section-6.2-1">An object identifier from the id-mod arc <span>[<a href="#RFC7299" class="xref">RFC7299</a>]</span> should be assigned for id-mod-keyAttestation in the SMI Security for PKIX Module Identifier Registry.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">An object identifier from the id-mod arc defined in <span>[<a href="#RFC7299" class="xref">RFC7299</a>]</span> should be assigned for id-mod-keyAttestation.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attestation-statement-formats">
@@ -1847,7 +1856,188 @@ h'
         <h3 id="name-attestation-statement-forma">
 <a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-attestation-statement-forma" class="section-name selfRef">Attestation statement formats</a>
         </h3>
-<p id="section-6.3-1"><span><a href="https://rfc-editor.org/rfc/rfc8809#section-2.1" class="relref">Section 2.1</a> of [<a href="#RFC8809" class="xref">RFC8809</a>]</span> describes registration of new attestation statement format types. These are not instructions for IANA but rather instructions for those who want to know how to register new formats for use with the attestationStatement field.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-1"><span><a href="https://rfc-editor.org/rfc/rfc8809#section-2.1" class="relref">Section 2.1</a> of [<a href="#RFC8809" class="xref">RFC8809</a>]</span> describes registration of new attestation statement format types used when authenticating users via <span>[<a href="#WebAuthn" class="xref">WebAuthn</a>]</span>. This specification reuses the same format, but, because the context for use is different, a different registry is required. This section defines IANA registries for W3C Web Authentication (WebAuthn) attestation statement format identifiers and extension identifiers used in the context of a certificate request. This specification establishes two registries:<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-2.1">the "WebAuthn Attestation Statement Format Identifiers for Certificate Request Protocols" registry<a href="#section-6.3-2.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-6.3-2.2">the "WebAuthn Extension Identifiers for Certificate Request Protocols" registry<a href="#section-6.3-2.2" class="pilcrow">¶</a>
+</li>
+        </ul>
+<p id="section-6.3-3">Any additional processes established by the expert(s) after the publication of this document will be recorded on the registry web page at the discretion of the expert(s).<a href="#section-6.3-3" class="pilcrow">¶</a></p>
+<div id="webauthn-attestation-statement-format-identifiers-for-certificate-request-protocols">
+<section id="section-6.3.1">
+          <h4 id="name-webauthn-attestation-statem">
+<a href="#section-6.3.1" class="section-number selfRef">6.3.1. </a><a href="#name-webauthn-attestation-statem" class="section-name selfRef">WebAuthn Attestation Statement Format Identifiers for Certificate Request Protocols</a>
+          </h4>
+<p id="section-6.3.1-1">WebAuthn attestation statement format identifiers are strings whose semantic, syntactic, and string-matching criteria are specified in the "Attestation Statement Format Identifiers" (https://www.w3.org/TR/2019/REC-webauthn-1-20190304/#sctn-attstn-fmt-ids) section of <span>[<a href="#WebAuthn" class="xref">WebAuthn</a>]</span>, along with the concepts of attestation and attestation statement formats.<a href="#section-6.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.3.1-2">Registered attestation statement format identifiers are those that have been added to the registry by following the procedure in <a href="#registering-attestation-statement-format-identifiers" class="xref">Section 6.3.1.1</a>.<a href="#section-6.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.3.1-3">Each attestation statement format identifier added to this registry <span class="bcp14">MUST</span> be unique amongst the set of registered attestation statement format identifiers.<a href="#section-6.3.1-3" class="pilcrow">¶</a></p>
+<p id="section-6.3.1-4">Registered attestation statement format identifiers <span class="bcp14">MUST</span> be a maximum of 32 octets in length and <span class="bcp14">MUST</span> consist only of printable ASCII [RFC20] characters, excluding backslash and double quote, i.e., VCHAR as defined in [RFC5234] but without %x22 and %x5c.  Attestation statement format identifiers are case sensitive and may not match other registered identifiers in a case-insensitive manner unless the designated experts determine that there is a compelling reason to allow an exception.<a href="#section-6.3.1-4" class="pilcrow">¶</a></p>
+<div id="registering-attestation-statement-format-identifiers">
+<section id="section-6.3.1.1">
+            <h5 id="name-registering-attestation-sta">
+<a href="#section-6.3.1.1" class="section-number selfRef">6.3.1.1. </a><a href="#name-registering-attestation-sta" class="section-name selfRef">Registering Attestation Statement Format Identifiers</a>
+            </h5>
+<p id="section-6.3.1.1-1">WebAuthn attestation statement format identifiers are registered using the Specification Required policy (see Section 4.6 of [RFC8126]).<a href="#section-6.3.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.3.1.1-2">The "WebAuthn Attestation Statement Format Identifiers for Certificate Request Protocols" registry is located at <a href="https://www.iana.org/assignments/webauthn_for_certreq">https://www.iana.org/assignments/webauthn_for_certreq</a>.  Registration requests can be made by following the instructions located there or by sending an email to the webauthn-for-certreq-reg-review@ietf.org mailing list.<a href="#section-6.3.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.3.1.1-3">Registration requests consist of at least the following information:<a href="#section-6.3.1.1-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.1-4.1">
+                <p id="section-6.3.1.1-4.1.1">WebAuthn Attestation Statement Format Identifier:<a href="#section-6.3.1.1-4.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.1-4.1.2.1">An identifier meeting the requirements given in <a href="#webauthn-attestation-statement-format-identifiers-for-certificate-request-protocols" class="xref">Section 6.3.1</a>.<a href="#section-6.3.1.1-4.1.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.1.1-4.2">
+                <p id="section-6.3.1.1-4.2.1">Description:<a href="#section-6.3.1.1-4.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.1-4.2.2.1">A relatively short description of the attestation format.<a href="#section-6.3.1.1-4.2.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.1.1-4.3">
+                <p id="section-6.3.1.1-4.3.1">Specification Document(s):<a href="#section-6.3.1.1-4.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.1-4.3.2.1">Reference to the document or documents that specify the attestation statement format.<a href="#section-6.3.1.1-4.3.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.1.1-4.4">
+                <p id="section-6.3.1.1-4.4.1">Change Controller:<a href="#section-6.3.1.1-4.4.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.1-4.4.2.1">For Standards Track RFCs, list "IETF".  For others, give the name of the responsible party.  Other details (e.g., postal address, email address, home page URI) may also be included.<a href="#section-6.3.1.1-4.4.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.1.1-4.5">
+                <p id="section-6.3.1.1-4.5.1">Notes:<a href="#section-6.3.1.1-4.5.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.1-4.5.2.1">[optional]<a href="#section-6.3.1.1-4.5.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+            </ul>
+<p id="section-6.3.1.1-5">Registrations <span class="bcp14">MUST</span> reference a freely available, stable specification, e.g., as described in Section 4.6 of [RFC8126].  This specification <span class="bcp14">MUST</span> include security and privacy considerations relevant to the attestation statement format.<a href="#section-6.3.1.1-5" class="pilcrow">¶</a></p>
+<p id="section-6.3.1.1-6">Note that WebAuthn attestation statement format identifiers can be registered by third parties (including the expert(s) themselves), if the expert(s) determines that an unregistered attestation statement format is widely deployed and not likely to be registered in a timely manner otherwise.  Such registrations still are subject to the requirements defined, including the need to reference a specification.<a href="#section-6.3.1.1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="registration-request-processing">
+<section id="section-6.3.1.2">
+            <h5 id="name-registration-request-proces">
+<a href="#section-6.3.1.2" class="section-number selfRef">6.3.1.2. </a><a href="#name-registration-request-proces" class="section-name selfRef">Registration Request Processing</a>
+            </h5>
+<p id="section-6.3.1.2-1">As noted in <a href="#registering-attestation-statement-format-identifiers" class="xref">Section 6.3.1.1</a>, WebAuthn attestation statement format identifiers are registered using the Specification Required policy.<a href="#section-6.3.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.3.1.2-2">The expert(s) will clearly identify any issues that cause a registration to be refused, such as an incompletely specified attestation format.<a href="#section-6.3.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.3.1.2-3">When a request is approved, the expert(s) will inform IANA, and the registration will be processed.  The IESG is the arbiter of any objection.<a href="#section-6.3.1.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="initial-values-in-the-webauthn-attestation-statement-format-identifiers-for-certificate-request-protocols-registry">
+<section id="section-6.3.1.3">
+            <h5 id="name-initial-values-in-the-webau">
+<a href="#section-6.3.1.3" class="section-number selfRef">6.3.1.3. </a><a href="#name-initial-values-in-the-webau" class="section-name selfRef">Initial Values in the WebAuthn Attestation Statement Format Identifiers for Certificate Request Protocols Registry</a>
+            </h5>
+<p id="section-6.3.1.3-1">The initial values for the "WebAuthn Attestation Statement Format Identifiers for Certificate Request Protocols" registry have been populated with the values listed in the "WebAuthn Attestation Statement Format Identifier Registrations" (https://www.w3.org/TR/2019/REC-webauthn-1-20190304/#sctn-att-fmt-reg) section of <span>[<a href="#WebAuthn" class="xref">WebAuthn</a>]</span>.  Also, the Change Controller entry for each of those registrations is:<a href="#section-6.3.1.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.3-2.1">
+                <p id="section-6.3.1.3-2.1.1">Change Controller:<a href="#section-6.3.1.3-2.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.1.3-2.1.2.1">W3C Web Authentication Working Group (public-webauthn@w3.org)<a href="#section-6.3.1.3-2.1.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+            </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="webauthn-extension-identifiers-for-certificate-request-protocols">
+<section id="section-6.3.2">
+          <h4 id="name-webauthn-extension-identifi">
+<a href="#section-6.3.2" class="section-number selfRef">6.3.2. </a><a href="#name-webauthn-extension-identifi" class="section-name selfRef">WebAuthn Extension Identifiers for Certificate Request Protocols</a>
+          </h4>
+<p id="section-6.3.2-1">WebAuthn extension identifiers are strings whose semantic, syntactic, and string-matching criteria are specified in the "Extension Identifiers" (https://www.w3.org/TR/2019/REC-webauthn-1-20190304/#sctn-extension-id) section of <span>[<a href="#WebAuthn" class="xref">WebAuthn</a>]</span>.<a href="#section-6.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.3.2-2">Registered extension identifiers are those that have been added to the registry by following the procedure in <a href="#registering-extension-identifiers" class="xref">Section 6.3.2.1</a>.<a href="#section-6.3.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.3.2-3">Each extension identifier added to this registry <span class="bcp14">MUST</span> be unique amongst the set of registered extension identifiers.<a href="#section-6.3.2-3" class="pilcrow">¶</a></p>
+<p id="section-6.3.2-4">Registered extension identifiers <span class="bcp14">MUST</span> be a maximum of 32 octets in length and <span class="bcp14">MUST</span> consist only of printable ASCII characters, excluding backslash and double quote, i.e., VCHAR as defined in [RFC5234] but without %x22 and %x5c.  Extension identifiers are case sensitive and may not match other registered identifiers in a case-insensitive manner unless the designated experts determine that there is a compelling reason to allow an exception.<a href="#section-6.3.2-4" class="pilcrow">¶</a></p>
+<div id="registering-extension-identifiers">
+<section id="section-6.3.2.1">
+            <h5 id="name-registering-extension-ident">
+<a href="#section-6.3.2.1" class="section-number selfRef">6.3.2.1. </a><a href="#name-registering-extension-ident" class="section-name selfRef">Registering Extension Identifiers</a>
+            </h5>
+<p id="section-6.3.2.1-1">WebAuthn extension identifiers are registered using the Specification Required policy (see Section 4.6 of [RFC8126]).<a href="#section-6.3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.3.2.1-2">The "WebAuthn Extension Identifiers" registry is located at <a href="https://www.iana.org/assignments/webauthn">https://www.iana.org/assignments/webauthn</a>.  Registration requests can be made by following the instructions located there or by sending an email to the webauthn-for-certreq-reg-review@ietf.org mailing list.<a href="#section-6.3.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.3.2.1-3">Registration requests consist of at least the following information:<a href="#section-6.3.2.1-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.1-4.1">
+                <p id="section-6.3.2.1-4.1.1">WebAuthn Extension Identifier:<a href="#section-6.3.2.1-4.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.1-4.1.2.1">An identifier meeting the requirements given in <a href="#webauthn-extension-identifiers-for-certificate-request-protocols" class="xref">Section 6.3.2</a>.<a href="#section-6.3.2.1-4.1.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.2.1-4.2">
+                <p id="section-6.3.2.1-4.2.1">Description:<a href="#section-6.3.2.1-4.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.1-4.2.2.1">A relatively short description of the extension.<a href="#section-6.3.2.1-4.2.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.2.1-4.3">
+                <p id="section-6.3.2.1-4.3.1">Specification Document(s):<a href="#section-6.3.2.1-4.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.1-4.3.2.1">Reference to the document or documents that specify the extension.<a href="#section-6.3.2.1-4.3.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.2.1-4.4">
+                <p id="section-6.3.2.1-4.4.1">Change Controller:<a href="#section-6.3.2.1-4.4.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.1-4.4.2.1">For Standards Track RFCs, list "IETF".  For others, give the name of the responsible party.  Other details (e.g., postal address, email address, home page URI) may also be included.<a href="#section-6.3.2.1-4.4.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+              <li class="normal" id="section-6.3.2.1-4.5">
+                <p id="section-6.3.2.1-4.5.1">Notes:<a href="#section-6.3.2.1-4.5.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.1-4.5.2.1">[optional]<a href="#section-6.3.2.1-4.5.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+            </ul>
+<p id="section-6.3.2.1-5">Registrations <span class="bcp14">MUST</span> reference a freely available, stable specification, e.g., as described in Section 4.6 of [RFC8126].  This specification <span class="bcp14">MUST</span> include security and privacy considerations relevant to the extension.<a href="#section-6.3.2.1-5" class="pilcrow">¶</a></p>
+<p id="section-6.3.2.1-6">Note that WebAuthn extensions can be registered by third parties (including the expert(s) themselves), if the expert(s) determines that an unregistered extension is widely deployed and not likely to be registered in a timely manner otherwise.  Such registrations still are subject to the requirements defined, including the need to reference a specification.<a href="#section-6.3.2.1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="registration-request-processing-1">
+<section id="section-6.3.2.2">
+            <h5 id="name-registration-request-process">
+<a href="#section-6.3.2.2" class="section-number selfRef">6.3.2.2. </a><a href="#name-registration-request-process" class="section-name selfRef">Registration Request Processing</a>
+            </h5>
+<p id="section-6.3.2.2-1">As noted in <a href="#registering-extension-identifiers" class="xref">Section 6.3.2.1</a>, WebAuthn extension identifiers are registered using the Specification Required policy.<a href="#section-6.3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.3.2.2-2">The expert(s) will clearly identify any issues that cause a registration to be refused, such as an incompletely specified extension.<a href="#section-6.3.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.3.2.2-3">When a request is approved, the expert(s) will inform IANA, and the registration will be processed.  The IESG is the arbiter of any objection.<a href="#section-6.3.2.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="initial-values-in-the-webauthn-extension-identifiers-registry">
+<section id="section-6.3.2.3">
+            <h5 id="name-initial-values-in-the-webaut">
+<a href="#section-6.3.2.3" class="section-number selfRef">6.3.2.3. </a><a href="#name-initial-values-in-the-webaut" class="section-name selfRef">Initial Values in the WebAuthn Extension Identifiers Registry</a>
+            </h5>
+<p id="section-6.3.2.3-1">The initial values for the "WebAuthn Extension Identifiers" registry have been populated with the values listed in the "WebAuthn Extension Identifier Registrations" <a href="https://www.w3.org/TR/2019/REC-webauthn-1-20190304/#sctn-extensions-reg">https://www.w3.org/TR/2019/REC-webauthn-1-20190304/#sctn-extensions-reg</a> section of <span>[<a href="#WebAuthn" class="xref">WebAuthn</a>]</span>.  Also, the Change Controller entry for each of those registrations is:<a href="#section-6.3.2.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.3-2.1">
+                <p id="section-6.3.2.3-2.1.1">Change Controller:<a href="#section-6.3.2.3-2.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3.2.3-2.1.2.1">W3C Web Authentication Working Group (public-webauthn@w3.org)<a href="#section-6.3.2.3-2.1.2.1" class="pilcrow">¶</a>
+</li>
+                </ul>
+</li>
+            </ul>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 </section>
